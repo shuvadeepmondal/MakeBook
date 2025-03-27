@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
-import NewsCard from "@/components/news-card"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import NewsCard from "./NewsCard"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs"
 
 interface NewsItem {
   id: number

@@ -1,8 +1,8 @@
 import { useState } from "react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { Textarea } from "@/components/ui/textarea"
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
+import { Button } from "./ui/button"
+import { Card, CardContent, CardFooter, CardHeader } from "./ui/card"
+import { Textarea } from "./ui/textarea"
 import { MessageSquare, Share2, Bookmark, Send, ChevronDown } from "lucide-react"
 import { formatDistanceToNow } from "date-fns"
 
@@ -106,8 +106,6 @@ export default function NewsCard({ news, onVote, onAddComment }: NewsCardProps) 
             <img
               src={news.image || "/placeholder.svg"}
               alt={news.title}
-              width={300}
-              height={200}
               className="w-full h-56 md:h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div

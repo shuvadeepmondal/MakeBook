@@ -1,17 +1,20 @@
+"use client"
+
 import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Switch } from "@/components/ui/switch"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Button } from "./ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card"
+import { Input } from "./ui/input"
+import { Label } from "./ui/label"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs"
+import { Switch } from "./ui/switch"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select"
 import { AlertCircle, Bell, Lock, LogOut, Mail, Shield, Trash2, User } from "lucide-react"
-import Header from "@/components/header"
-import Sidebar from "@/components/sidebar"
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
+import Header from "./Header"
+import Sidebar from "./Sidebar"
+import { Alert, AlertDescription, AlertTitle } from "./ui/alert"
 
 export default function AccountSection() {
+  const [activeCategory, setActiveCategory] = useState("all")
   const [passwordValues, setPasswordValues] = useState({
     currentPassword: "",
     newPassword: "",
@@ -30,8 +33,6 @@ export default function AccountSection() {
     upvotes: false,
     productUpdates: true,
   })
-
-  const [activeCategory, setActiveCategory] = useState("all")
 
   return (
     <div className="flex flex-col min-h-screen">

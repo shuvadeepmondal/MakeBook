@@ -1,7 +1,7 @@
 import { Home, Newspaper, Flame, Tv, Music, Heart, Settings, User } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
-import {Link} from "react-router-dom"
+import { Button } from "./ui/button"
+import { cn } from "../lib/utils"
+import { Link } from "react-router-dom"
 
 interface SidebarProps {
   activeCategory: string
@@ -46,13 +46,13 @@ export default function Sidebar({ activeCategory, setActiveCategory }: SidebarPr
         <div className="mt-auto px-3 py-2 hidden md:block space-y-1">
           <h2 className="mb-2 px-4 text-sm font-semibold tracking-tight text-muted-foreground">Account</h2>
           <Button variant="ghost" className="w-full justify-start" asChild>
-            <Link to ="/profile">
+            <Link to="/profile" className="flex items-center w-full">
               <User className="mr-2 h-4 w-4" />
               Profile
             </Link>
           </Button>
           <Button variant="ghost" className="w-full justify-start" asChild>
-            <Link to ="/account">
+            <Link to="/account" className="flex items-center w-full">
               <Settings className="mr-2 h-4 w-4" />
               Settings
             </Link>

@@ -1,17 +1,19 @@
 import { useState } from "react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Textarea } from "@/components/ui/textarea"
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
+import { Button } from "./ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "./ui/card"
+import { Input } from "./ui/input"
+import { Label } from "./ui/label"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "./ui/tabs"
+import { Textarea } from "./ui/textarea"
 import { Edit, ImageIcon, MapPin, Calendar, Bookmark, MessageSquare, ThumbsUp } from "lucide-react"
-import Header from "@/components/header"
-import Sidebar from "@/components/sidebar"
+import Header from "./Header"
+import Sidebar from "./Sidebar"
+
 
 export default function ProfileSection() {
   const [isEditing, setIsEditing] = useState(false)
+  const [activeCategory, setActiveCategory] = useState("all")
   const [profile, setProfile] = useState({
     name: "Jane Smith",
     username: "janesmith",
@@ -24,25 +26,19 @@ export default function ProfileSection() {
   })
 
   const handleSaveProfile = () => {
-    // Save profile data here in real applications
+    // In a real app, you would save the profile to the backend here
     setIsEditing(false)
   }
 
-  const [activeCategory, setActiveCategory] = useState("all")
-
   return (
     <div className="flex flex-col min-h-screen">
-      <Header />
+      <Header/>
       <div className="flex flex-col md:flex-row flex-1">
-      <Sidebar activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
+        <Sidebar activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
         <main className="flex-1">
           {/* Cover Image */}
           <div className="relative h-48 md:h-64 w-full overflow-hidden">
-            <img
-              src={profile.coverImage || "/placeholder.svg"}
-              alt="Cover"
-              className="w-full h-full object-cover"
-            />
+            <img src={profile.coverImage || "/placeholder.svg"} alt="Cover" className="w-full h-full object-cover" />
             {isEditing && (
               <Button variant="secondary" size="sm" className="absolute bottom-4 right-4 flex items-center gap-1">
                 <ImageIcon className="h-4 w-4" />
@@ -109,7 +105,6 @@ export default function ProfileSection() {
                 <TabsTrigger value="activity">Activity</TabsTrigger>
               </TabsList>
 
-              {/* About Section */}
               <TabsContent value="about">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                   <Card className="md:col-span-2">
@@ -176,7 +171,6 @@ export default function ProfileSection() {
                     </CardContent>
                   </Card>
 
-                  {/* Stats & Interests */}
                   <div className="space-y-6">
                     <Card>
                       <CardHeader>
@@ -215,11 +209,11 @@ export default function ProfileSection() {
                       </CardHeader>
                       <CardContent>
                         <div className="flex flex-wrap gap-2">
-                          {["Technology", "Design", "Politics", "Science", "Health"].map((interest, index) => (
-                            <div key={index} className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">
-                              {interest}
-                            </div>
-                          ))}
+                          <div className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">Technology</div>
+                          <div className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">Design</div>
+                          <div className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">Politics</div>
+                          <div className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">Science</div>
+                          <div className="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">Health</div>
                         </div>
                       </CardContent>
                     </Card>
@@ -227,7 +221,6 @@ export default function ProfileSection() {
                 </div>
               </TabsContent>
 
-              {/* Other Sections: Posts, Saved, Activity */}
               <TabsContent value="posts">
                 <Card>
                   <CardHeader>
@@ -325,3 +318,4 @@ export default function ProfileSection() {
     </div>
   )
 }
+
